@@ -66,12 +66,29 @@ ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
 snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 
 " Add tabs through normal mode command
+nnoremap <leader>TT  @="I<C-v><C-H><C-v><C-[>j"<CR>
+nnoremap <leader>tt  @="I<C-v><C-I><C-v><C-[>j"<CR>
+
+function! DeleteTabs(count)
+    let save_pos = getpos(".")
+    execute "normal " . a:count . ",TT"
+    call setpos(".", save_pos)
+    execute "normal 0"
+endfunction
+
+function! AddTabs(count)
+    let save_pos = getpos(".")
+    execute "normal " . a:count . ",tt"
+    call setpos(".", save_pos)
+    execute "normal 0"
+endfunction
+
 command! -nargs=1 DeleteTabsCmd call DeleteTabs(<args>)
 command! -nargs=1 AddTabsCmd call AddTabs(<args>)
 map T :<C-U>DeleteTabsCmd(v:count)<CR>
+map tt :<C-U>AddTabsCmd(v:count)<CR>
 
 " surround.vim config
 " Annotate strings with gettext
 vmap Si S(i_<esc>f)
 au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
-map tt :<C-U>AddTabsCmd(v:count)<CR>

@@ -74,20 +74,6 @@ func! CurrentFileDir(cmd)
     return a:cmd . " " . expand("%:p:h") . "/"
 endfunc
 
-function! DeleteTabs(count)
-    let save_pos = getpos(".")
-    execute "normal " . a:count . ",TT"
-    call setpos(".", save_pos)
-    execute "normal 0"
-endfunction
-
-function! AddTabs(count)
-    let save_pos = getpos(".")
-    execute "normal " . a:count . ",tt"
-    call setpos(".", save_pos)
-    execute "normal 0"
-endfunction
-
 " Fast editing and reloading of vimrc configs
 map <leader>e :e! ~/.vim_runtime/my_configs.vim<cr>
 autocmd! bufwritepost ~/.vim_runtime/my_configs.vim source ~/.vim_runtime/my_configs.vim
