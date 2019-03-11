@@ -20,16 +20,16 @@ nmap <leader>w :w!<cr>
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+" command W w !sudo tee % > /dev/null
 
 " Fix Alt keymap problem
-let c='a'
-while c <= 'z'
-  exec "set <A-".c.">=\e".c
-  exec "imap \e".c." <A-".c.">"
-  let c = nr2char(1+char2nr(c))
-endw
-set timeout ttimeoutlen=50
+" let c='a'
+" while c <= 'z'
+"   exec "set <A-".c.">=\e".c
+"   exec "imap \e".c." <A-".c.">"
+"   let c = nr2char(1+char2nr(c))
+" endw
+" set timeout ttimeoutlen=50
 
 " Disable <Arrow keys>
 " Warning: nightmare mode!

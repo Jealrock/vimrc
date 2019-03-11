@@ -1,11 +1,15 @@
 " Remap VIM 0 to first non-blank character
 map 0 ^
 
+" Map copying and pasting to/from system clipboard
+vnoremap <leader>c "*y :let @+=@*<CR>
+map <C-v> "+P
+
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
-nmap <C-j> mz:m+<cr>`z
-nmap <C-k> mz:m-2<cr>`z
-vmap <C-j> :m'>+<cr>`<my`>mzgv`yo`z
-vmap <C-k> :m'<-2<cr>`>my`<mzgv`yo`z
+nmap <A-j> mz:m+<cr>`z
+nmap <A-k> mz:m-2<cr>`z
+vmap <A-j> :m'>+<cr>`<my`>mzgv`yo`z
+vmap <A-k> :m'<-2<cr>`>my`<mzgv`yo`z
 
 if has("mac") || has("macunix")
   nmap <D-j> <C-j>

@@ -10,8 +10,8 @@ set expandtab
 set smarttab
 
 " 1 tab == 4 spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 
 " Linebreak on 500 characters
 set lbr
@@ -22,10 +22,10 @@ set si "Smart indent
 set wrap "Wrap lines
 
 " Smart way to move between windows
-map <M-j> <C-W>j
-map <M-k> <C-W>k
-map <M-h> <C-W>h
-map <M-l> <C-W>l
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
 
 " BufEXporer settings
 let g:bufExplorerDefaultHelp=0
@@ -41,6 +41,7 @@ map <leader>f :MRU<CR>
 let g:ctrlp_working_path_mode = 0
 
 let g:ctrlp_map = '<c-f>'
+map <a-f> :CtrlPTag<cr>
 map <leader>j :CtrlP<cr>
 map <c-b> :CtrlPBuffer<cr>
 
@@ -70,8 +71,8 @@ map <leader>bd :Bclose<cr>:tabclose<cr>gT
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 
-map <leader>l :bnext<cr>
-map <leader>h :bprevious<cr>
+map <a-h> :BufSurfBack<cr>
+map <a-l> :BufSurfForward<cr>
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
@@ -104,10 +105,18 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Turn persistent undo on
 " means that you can undo even when you close a buffer/VIM
 try
-    set undodir=~/.vim_runtime/temp_dirs/undodir
+    set undodir=~/.vim/temp_dirs/undodir
     set undofile
 catch
 endtry
+
+""""""""""""""""""""""""""""""
+" => Dart section
+""""""""""""""""""""""""""""""
+au FileType dart set shiftwidth=2
+au FileType dart set tabstop=2
+au FileType dart let dart_style_guide = 2 
+au FileType dart let dart_format_on_save = 1 
 
 """"""""""""""""""""""""""""""
 " => Python section
@@ -136,6 +145,12 @@ au FileType python set indentkeys-=0#
 """"""""""""""""""""""""""""""
 " => JavaScript section
 """""""""""""""""""""""""""""""
+
+au FileType javascript set shiftwidth=2
+au FileType javascript set tabstop=2
+au FileType vue set shiftwidth=2
+au FileType vue set tabstop=2
+
 au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
@@ -157,6 +172,7 @@ function! JavaScriptFold()
     setl foldtext=FoldText()
 endfunction
 
+autocmd FileType vue syntax sync fromstart
 
 """"""""""""""""""""""""""""""
 " => CoffeeScript section
@@ -169,6 +185,10 @@ au FileType coffee call CoffeeScriptFold()
 
 au FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
+""""""""""""""""""""""""""""""
+" => TypeScript section
+"""""""""""""""""""""""""""""""
+map <leader>ti :TsuImport<cr>
 
 """"""""""""""""""""""""""""""
 " => Shell section
@@ -186,3 +206,9 @@ endif
 " => Twig section
 """"""""""""""""""""""""""""""
 autocmd BufRead *.twig set syntax=html filetype=html
+
+""""""""""""""""""""""""""""""
+" => Ctags section
+""""""""""""""""""""""""""""""
+let g:gutentags_exclude_project_root=['/usr/local', $HOME]
+nnoremap <silent> <Leader>t :TagbarToggle<CR>

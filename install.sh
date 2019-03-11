@@ -1,13 +1,14 @@
 #!/bin/sh
 set -e
 
-cd ~/.dotfiles
+cd ~/.vim
 
-echo "set runtimepath+=~/.dotfiles
+echo "set runtimepath+=~/.vim
 
-call plug#begin('~/.dotfiles/plugins')
+call plug#begin('~/.vim/plugins')
 \" Interface
 Plug 'morhetz/gruvbox'
+Plug 'robertmeta/nofrils'
 Plug 'myusuf3/numbers.vim'
 Plug 'itchyny/lightline.vim'
 
@@ -15,6 +16,11 @@ Plug 'itchyny/lightline.vim'
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'sophacles/vim-bundle-mako'
+Plug 'KabbAmine/zeavim.vim'
+Plug 'mattn/emmet-vim'
+Plug 'Quramy/tsuquyomi'
+Plug 'Valloric/YouCompleteMe'
+Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
 \" Search
 Plug 'mileszs/Ack.vim'
@@ -23,6 +29,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/mru.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'majutsushi/tagbar'
+Plug 'ton/vim-bufsurf'
 
 \" Syntax
 Plug 'chr4/nginx.vim'
@@ -31,6 +40,10 @@ Plug 'nvie/vim-flake8'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
+Plug 'posva/vim-vue'
+Plug 'dart-lang/dart-vim-plugin'
+Plug 'PotatoesMaster/i3-vim-syntax'
+Plug 'leafgarland/typescript-vim'
 
 \" Helpers
 Plug 'amix/open_file_under_cursor.vim'
@@ -41,6 +54,7 @@ Plug 'godlygeek/tabular'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'tpope/vim-surround'
 Plug 'maxbrunsfeld/vim-yankstack'
+Plug 'reisub0/hot-reload.vim'
 
 \" Git
 Plug 'tpope/vim-fugitive'
@@ -53,13 +67,13 @@ Plug 'honza/vim-snippets'
 
 call plug#end()
 
-source ~/.dotfiles/vimrcs/helpers.vim
-source ~/.dotfiles/vimrcs/general.vim
-source ~/.dotfiles/vimrcs/interface.vim
-source ~/.dotfiles/vimrcs/edit.vim
-source ~/.dotfiles/vimrcs/search.vim
-source ~/.dotfiles/vimrcs/files.vim
-source ~/.dotfiles/vimrcs/misc.vim
-source ~/.dotfiles/vimrcs/command_line.vim" > ~/.vimrc
+source ~/.vim/vimrcs/helpers.vim
+source ~/.vim/vimrcs/general.vim
+source ~/.vim/vimrcs/interface.vim
+source ~/.vim/vimrcs/edit.vim
+source ~/.vim/vimrcs/search.vim
+source ~/.vim/vimrcs/files.vim
+source ~/.vim/vimrcs/misc.vim
+source ~/.vim/vimrcs/command_line.vim" > ~/.vimrc
 
 echo "Successfully installed"

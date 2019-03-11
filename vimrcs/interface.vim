@@ -1,11 +1,28 @@
 " Set colors
-set termguicolors
+" VIRGIN COLORSCHEME
 set background=dark
 let g:gruvbox_contrast_dark ='hard'
 let g:gruvbox_contrast_light ='soft'
 colorscheme gruvbox
-syntax enable
 
+" CHAD COLORSCHEME 
+" colorscheme acme
+" let g:lightline = {
+"       \ 'colorscheme': 'solarized',
+"       \ }
+" colorscheme nofrils-dark 
+
+syntax enable
+hi Normal guibg=NONE ctermbg=NONE
+
+" use an orange cursor in insert mode
+let &t_SI = "\<Esc>]12;orange\x7"
+" use a red cursor otherwise
+let &t_EI = "\<Esc>]12;red\x7"
+silent !echo -ne "\033]12;red\007"
+" reset cursor when vim exits
+autocmd VimLeave * silent !echo -ne "\033]112\007"
+" use \003]12;gray\007 for gnome-terminal and rxvt up to version 9.21
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
     set t_Co=256
