@@ -1,18 +1,13 @@
-#!/bin/sh
-set -e
-
-cd ~/.vim
-
-echo "set runtimepath+=~/.vim
+set runtimepath+=~/.vim
 
 call plug#begin('~/.vim/plugins')
-\" Interface
+" Interface
 Plug 'morhetz/gruvbox'
 Plug 'robertmeta/nofrils'
 Plug 'myusuf3/numbers.vim'
 Plug 'itchyny/lightline.vim'
 
-\" Utils
+" Utils
 Plug 'tomtom/tlib_vim'
 Plug 'MarcWeber/vim-addon-mw-utils'
 Plug 'sophacles/vim-bundle-mako'
@@ -22,18 +17,20 @@ Plug 'Quramy/tsuquyomi'
 Plug 'Valloric/YouCompleteMe'
 Plug 'Shougo/vimproc.vim', {'do' : 'make'}
 
-\" Search
+" Search
 Plug 'mileszs/Ack.vim'
-Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
-Plug 'jlanzarotta/bufexplorer'
 Plug 'vim-scripts/mru.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'ton/vim-bufsurf'
 
-\" Syntax
+" Syntax
+Plug 'sheerun/vim-polyglot'
+Plug 'sheerun/vim-polyglot'
 Plug 'chr4/nginx.vim'
 Plug 'othree/html5.vim'
 Plug 'nvie/vim-flake8'
@@ -45,7 +42,7 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'PotatoesMaster/i3-vim-syntax'
 Plug 'leafgarland/typescript-vim'
 
-\" Helpers
+" Helpers
 Plug 'amix/open_file_under_cursor.vim'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-commentary'
@@ -56,10 +53,11 @@ Plug 'tpope/vim-surround'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'reisub0/hot-reload.vim'
 
-\" Git
+" Git
 Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
-\" Other
+" Other
 Plug 'junegunn/goyo.vim'
 Plug 'amix/vim-zenroom2'
 Plug 'garbas/vim-snipmate'
@@ -74,6 +72,4 @@ source ~/.vim/vimrcs/edit.vim
 source ~/.vim/vimrcs/search.vim
 source ~/.vim/vimrcs/files.vim
 source ~/.vim/vimrcs/misc.vim
-source ~/.vim/vimrcs/command_line.vim" > ~/.vimrc
-
-echo "Successfully installed"
+source ~/.vim/vimrcs/command_line.vim

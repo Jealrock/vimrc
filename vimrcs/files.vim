@@ -27,26 +27,16 @@ map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
 
-" BufEXporer settings
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
-let g:bufExplorerFindActive=1
-let g:bufExplorerSortBy='name'
-
 " MRU settings
 let MRU_Max_Entries = 400
 map <leader>f :MRU<CR>
 
-" CTRLP settings
-let g:ctrlp_working_path_mode = 0
+" fzf settings
+let g:fzf_command_prefix = 'Fzf'
 
-let g:ctrlp_map = '<c-f>'
-map <a-f> :CtrlPTag<cr>
-map <leader>j :CtrlP<cr>
-map <c-b> :CtrlPBuffer<cr>
-
-let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+map <c-f> :FzfFiles<cr>
+map <c-b> :FzfBuffers<cr>
+map <c-t> :FzfTags<cr>
 
 " Vim grep
 let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
@@ -189,6 +179,11 @@ au FileType gitcommit call setpos('.', [0, 1, 1, 0])
 " => TypeScript section
 """""""""""""""""""""""""""""""
 map <leader>ti :TsuImport<cr>
+
+""""""""""""""""""""""""""""""
+" => Ruby on Rails section
+"""""""""""""""""""""""""""""""
+map <leader>r :R<cr>
 
 """"""""""""""""""""""""""""""
 " => Shell section

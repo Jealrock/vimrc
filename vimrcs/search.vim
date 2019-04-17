@@ -18,8 +18,9 @@ endif
 " When you press gv you Ack after the selected text
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
-" Open Ack and put the cursor in the right position
-map <leader>g :Ack 
+" Open FzfAg
+nnoremap <leader>g :FzfAg<CR>
+vnoremap <leader>g :call VisualSelection('', '')<CR>:FzfAg<CR>@<CR>
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
