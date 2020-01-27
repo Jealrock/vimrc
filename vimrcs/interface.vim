@@ -5,12 +5,12 @@ let g:gruvbox_contrast_dark ='hard'
 let g:gruvbox_contrast_light ='soft'
 colorscheme gruvbox
 
-" CHAD COLORSCHEME 
+" CHAD COLORSCHEME
 " colorscheme acme
 " let g:lightline = {
 "       \ 'colorscheme': 'solarized',
 "       \ }
-" colorscheme nofrils-dark 
+" colorscheme nofrils-dark
 
 syntax enable
 hi Normal guibg=NONE ctermbg=NONE
@@ -136,8 +136,29 @@ set guioptions-=R
 set guioptions-=l
 set guioptions-=L
 
-" Goyo
-let g:goyo_width=100
-let g:goyo_margin_top = 2
-let g:goyo_margin_bottom = 2
-nnoremap <silent> <leader>z :Goyo<cr>
+" Indent visual indicators
+let g:indentLine_enabled = 0
+let g:indentLine_leadingSpaceEnabled=1
+let g:indentLine_leadingSpaceChar = '·'
+let g:indentLine_bufNameExclude = ['NERD_tree.*']
+
+" Lightline
+let g:lightline = {
+\ 'active': {
+\   'left': [ [ 'mode', 'paste' ],
+\             [ 'mru_files', 'cocstatus' ] ]
+\ },
+\ 'component_function': {
+\   'cocstatus': 'coc#status'
+\ },
+\ 'component_expand': {
+\   'mru_files': 'lightline#mru#files'
+\ },
+\ 'component_type': {
+\   'mru_files': 'tabsel'
+\ }
+\ }
+
+" Use auocmd to force lightline update.
+autocmd BufWinEnter,BufWritePost,TextChanged,TextChangedI * call lightline#update()
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()

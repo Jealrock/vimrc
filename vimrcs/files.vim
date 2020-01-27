@@ -51,18 +51,14 @@ map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
 
-" ZenCoding
-" Enable all functions in all modes
-let g:user_zen_mode='a'
-
 " Close the current buffer
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>d :Bclose<cr>:tabclose<cr>gT
 
 " Close all the buffers
 map <leader>ba :bufdo bd<cr>
 
-map <a-h> :BufSurfBack<cr>
-map <a-l> :BufSurfForward<cr>
+map <silent> <a-l> <Plug>lightline#mru#next_file()
+map <silent> <a-h> <Plug>lightline#mru#prev_file()
 
 " Useful mappings for managing tabs
 map <leader>tn :tabnew<cr>
@@ -105,8 +101,8 @@ endtry
 """"""""""""""""""""""""""""""
 au FileType dart set shiftwidth=2
 au FileType dart set tabstop=2
-au FileType dart let dart_style_guide = 2 
-au FileType dart let dart_format_on_save = 1 
+au FileType dart let dart_style_guide = 2
+au FileType dart let dart_format_on_save = 1
 
 """"""""""""""""""""""""""""""
 " => Python section
@@ -176,18 +172,15 @@ au FileType coffee call CoffeeScriptFold()
 au FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
 """"""""""""""""""""""""""""""
-" => TypeScript section
-"""""""""""""""""""""""""""""""
-map <leader>ti :TsuImport<cr>
-
-""""""""""""""""""""""""""""""
 " => Ruby on Rails section
 """""""""""""""""""""""""""""""
 map <leader>r :R<cr>
+au FileType ruby, eruby imap <c-t> $log();<esc>hi
 
 """"""""""""""""""""""""""""""
 " => Shell section
 """"""""""""""""""""""""""""""
+set termguicolors                    " Enable GUI colors for the terminal to get truecolor
 if exists('$TMUX')
     if has('nvim')
         set termguicolors
@@ -196,6 +189,12 @@ if exists('$TMUX')
     endif
 endif
 
+""""""""""""""""""""""""""""""
+" => Clojure section
+"""""""""""""""""""""""""""""""
+au FileType clojure set shiftwidth=2
+au FileType clojure set tabstop=2
+let g:paredit_shortmaps = 1
 
 """"""""""""""""""""""""""""""
 " => Twig section
@@ -207,3 +206,9 @@ autocmd BufRead *.twig set syntax=html filetype=html
 """"""""""""""""""""""""""""""
 let g:gutentags_exclude_project_root=['/usr/local', $HOME]
 nnoremap <silent> <Leader>t :TagbarToggle<CR>
+
+""""""""""""""""""""""""""""""
+" => Notational-fzf section
+""""""""""""""""""""""""""""""
+let g:nv_search_paths = ['~/Notes']
+nnoremap <silent> <Leader>s :NV<CR>

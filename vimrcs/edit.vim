@@ -65,9 +65,11 @@ let g:yankstack_yank_keys = ['y', 'd']
 nmap <c-p> <Plug>yankstack_substitute_older_paste
 nmap <c-n> <Plug>yankstack_substitute_newer_paste
 
-" snipMate (beside <TAB> support <CTRL-j>)
-ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
+" UltiSnip
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/ultisnips']
+let g:UltiSnipsExpandTrigger="<m-l>"
+let g:UltiSnipsJumpForwardTrigger="<m-j>"
+let g:UltiSnipsJumpBackwardTrigger="<m-k>"
 
 " Add tabs through normal mode command
 nnoremap <leader>TT  @="I<C-v><C-H><C-v><C-[>j"<CR>
@@ -96,3 +98,7 @@ map tt :<C-U>AddTabsCmd(v:count)<CR>
 " Annotate strings with gettext
 vmap Si S(i_<esc>f)
 au FileType mako vmap Si S"i${ _(<esc>2f"a) }<esc>
+
+" Quickfix window
+map <C-n> :cn<CR>
+map <C-k> :cp<CR>

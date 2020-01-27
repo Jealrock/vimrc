@@ -31,7 +31,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"
@@ -77,3 +77,6 @@ endfunc
 " Fast editing and reloading of vimrc configs
 nnoremap <leader>e :e! ~/.vimrc<cr>
 autocmd! bufwritepost ~/.vimrc source ~/.vimrc
+
+" vim-doge
+let g:doge_enable_mappings = 0

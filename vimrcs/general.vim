@@ -1,6 +1,8 @@
 autocmd GUIEnter * set vb t_vb= " for your GUI
 autocmd VimEnter * set vb t_vb=
 
+set nofoldenable    " disable folding
+
 " Sets how many lines of history VIM has to remember
 set history=500
 
@@ -14,6 +16,7 @@ set autoread
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
 let mapleader = ","
+let maplocalleader = ";"
 
 " Fast saving
 nmap <leader>w :w!<cr>
