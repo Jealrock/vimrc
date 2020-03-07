@@ -1,4 +1,4 @@
-set runtimepath+=~/.vim
+set runtimepath+=~/.config/nvim
 
 call plug#begin('~/.vim/plugins')
 " Interface
@@ -67,12 +67,12 @@ Plug 'alok/notational-fzf-vim', { 'on': 'NV' }
 
 call plug#end()
 
-source ~/.vim/vimrcs/helpers.vim
-source ~/.vim/vimrcs/general.vim
-source ~/.vim/vimrcs/interface.vim
-source ~/.vim/vimrcs/edit.vim
-source ~/.vim/vimrcs/search.vim
-source ~/.vim/vimrcs/files.vim
-source ~/.vim/vimrcs/misc.vim
-source ~/.vim/vimrcs/command_line.vim
-source ~/.vim/vimrcs/coc.vim
+source ~/.config/nvim/vimrcs/helpers.vim
+source ~/.config/nvim/vimrcs/general.vim
+source ~/.config/nvim/vimrcs/interface.vim
+source ~/.config/nvim/vimrcs/edit.vim
+source ~/.config/nvim/vimrcs/search.vim
+source ~/.config/nvim/vimrcs/files.vim
+source ~/.config/nvim/vimrcs/misc.vim
+source ~/.config/nvim/vimrcs/command_line.vim
+source ~/.config/nvim/vimrcs/coc.vim
