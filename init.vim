@@ -24,13 +24,12 @@ Plug 'AndrewRadev/splitjoin.vim'
 
 " Search
 Plug 'mileszs/Ack.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-scripts/mru.vim'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 Plug 'dyng/ctrlsf.vim'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 
 " Syntax
 Plug 'sheerun/vim-polyglot'
