@@ -31,6 +31,13 @@ map <C-l> <C-W>l
 let MRU_Max_Entries = 400
 map <leader>f :MRU<CR>
 
+" fzf settings
+let g:fzf_command_prefix = 'Fzf'
+
+map <c-f> :FzfFiles<cr>
+map <c-b> :FzfBuffers<cr>
+map <c-t> :FzfTags<cr>
+
 " Vim grep
 let Grep_Skip_Dirs = 'RCS CVS SCCS .svn generated'
 set grepprg=/bin/grep\ -nH

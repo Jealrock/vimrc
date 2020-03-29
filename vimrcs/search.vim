@@ -18,15 +18,9 @@ endif
 " When you press gv you Ack after the selected text
 vnoremap <silent> gv :call VisualSelection('gv', '')<CR>
 
-" vim-clap settings
-let g:clap_layout = { 'relative': 'editor' }
-
-map <c-f> :Clap files<cr>
-map <c-b> :Clap buffers<cr>
-map <c-g> :Clap jumps<cr>
-nnoremap <leader>v :Clap git_diff_files<CR>
-nnoremap <leader>g :Clap grep<CR>
-vnoremap <leader>g :Clap grep ++query=@visual<CR>
+" Open FzfAg
+nnoremap <leader>g :FzfAg<CR>
+vnoremap <leader>g :call VisualSelection('', '')<CR>:FzfAg<CR>@<CR>
 
 " When you press <leader>r you can search and replace the selected text
 vnoremap <silent> <leader>r :call VisualSelection('replace', '')<CR>
